@@ -1,6 +1,10 @@
 require "ogeezy/version"
-require "ogeezy/array"
 require "ogeezy/routing"
+require "ogeezy/dependencies"
+require "ogeezy/util"
+require "ogeezy/array"
+require "ogeezy/controller"
+
 
 module Ogeezy
   class Application
@@ -15,16 +19,6 @@ module Ogeezy
       text = controller.send(act)
       [200, {'Content-Type' => 'text/html'},
       [text]]
-    end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
     end
   end
 end
